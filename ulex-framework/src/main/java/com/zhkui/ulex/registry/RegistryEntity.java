@@ -4,7 +4,7 @@ import com.zhkui.ulex.common.URL;
 import java.io.Serializable;
 
 public class RegistryEntity implements Serializable {
-
+    
     private static final long serialVersionUID = 2334563566435693345L;
 
     private URL url;
