@@ -15,24 +15,25 @@ import java.io.Serializable;
  * url example:
  * registry://192.168.1.7:9090/com.zhkui.service1?param1=value1&amp;param2=value2
  */
-public final class URL implements Serializable {
+public final class URL implements Serializable, Endpoint {
 
+    private static final long serialVersionUID = 2892453467893459234L;
     private final String protocol;
     private final String host;
-    private final String port;
+    private final int port;
     private final String path;
     private final String username;
     private final String password;
 
-    public URL(String protocol,String host,String port){
+    public URL(String protocol,String host,int port){
         this(protocol,host,port,null,null,null);
     }
 
-    public URL(String protocol,String host,String port, String path){
+    public URL(String protocol,String host,int port, String path){
         this(protocol,host,port,path,null,null);
     }
 
-    public URL(String protocol,String host,String port, String path, String username, String password){
+    public URL(String protocol,String host,int port, String path, String username, String password){
         if ((username == null || username.length()==0) && password != null && password.length()>0 ){
             throw new IllegalArgumentException("Invalid url, password without username!");
         }
@@ -53,7 +54,7 @@ public final class URL implements Serializable {
         return host;
     }
 
-    public String getPort() {
+    public int getPort() {
         return port;
     }
 
