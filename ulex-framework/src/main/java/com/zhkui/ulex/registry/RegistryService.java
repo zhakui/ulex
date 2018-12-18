@@ -23,18 +23,4 @@ public interface RegistryService {
      * @param url
      */
     void unregister(URL url) throws Exception;
-
-    /**
-     * subscribe service to registration center
-     *
-     * @param url
-     */
-    void subscribe(URL url) throws Exception;
-
-    /**
-     * unsubscribe service to registration center
-     *
-     * @param url
-     */
-    void unsubscribe(URL url) throws Exception;
 }

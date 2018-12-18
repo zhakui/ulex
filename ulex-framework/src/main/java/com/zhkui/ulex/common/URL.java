@@ -34,10 +34,6 @@ public final class URL implements Serializable, Endpoint {
     }
 
     public URL(String protocol,String host,int port, String path, String username, String password){
-<<<<<<< HEAD
-
-=======
->>>>>>> 369a64c... add netty
         if ((username == null || username.length()==0) && password != null && password.length()>0 ){
             throw new IllegalArgumentException("Invalid url, password without username!");
         }
