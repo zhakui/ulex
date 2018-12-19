@@ -6,11 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.zhkui.ulex.common.Request;
 
-public class NettyServiceHander extends SimpleChannelInboundHandler<Request>{
+public class NettyServiceHander extends SimpleChannelInboundHandler<Request> {
 
     Logger logger = LoggerFactory.getLogger(NettyServiceHander.class);
 
-    public void channelRead0(ChannelHandlerContext ctx, Request msg) throws Exception{
+    public void channelRead0(ChannelHandlerContext ctx, Request msg) throws Exception {
         logger.debug("channelRead0");
     }
 }
