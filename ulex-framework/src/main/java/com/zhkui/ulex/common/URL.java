@@ -53,11 +53,7 @@ public final class URL implements Serializable, Endpoint {
     public String getHost() {
         return host;
     }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 369a64c... add netty
+    
     public int getPort() {
         return port;
     }
