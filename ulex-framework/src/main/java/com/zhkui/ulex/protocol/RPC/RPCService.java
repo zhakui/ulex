@@ -32,6 +32,8 @@ public class RPCService {
 
     public void main (){
         logger.info("RPC service start");
+
+        
     }
 
 }

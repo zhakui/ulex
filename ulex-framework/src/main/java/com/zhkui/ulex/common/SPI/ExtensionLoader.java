@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Enumeration;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ExtensionLoader<T>{
@@ -14,9 +15,11 @@ public class ExtensionLoader<T>{
 
     private final ClassLoader loader;
 
-    private ConcurrentHashMap<String,Class<T>> extensionClass;
+    private ConcurrentHashMap<String,String> extensionClass;
 
     private Class<T> type;
+
+    private boolean isLoad = false;
 
     public ExtensionLoader(Class<T> type,ClassLoader loader){
         if (type == null){
@@ -32,17 +35,20 @@ public class ExtensionLoader<T>{
     }
 
 
-    public T getExtension(String name) {
+    public T getExtension(String name) throws LoaderException {
+        T clz = null;
         if (name == null || name.isEmpty())
             throw new IllegalStateException(type.getName() + ": Extension name is null");
-        
-        return null;
-
+        try {
+            if (!isLoad) LoadExtension();
+            clz = getExtensionClass(extensionClass.get(name));
+        } catch (LoaderException e) {
+            fail(e.getMessage());
+        }
+        return clz;
     }
 
-    public synchronized ConcurrentHashMap<String,Class<T>> LoadExtension(){
-
-        ConcurrentHashMap<String,Class<T>> extensions = new ConcurrentHashMap<>();
+    public synchronized void LoadExtension() throws LoaderException{
 
         String fullPath = PREFIX +  type.getName();
 
@@ -50,51 +56,82 @@ public class ExtensionLoader<T>{
             Enumeration<URL> configs = loader.getResources(fullPath);
             if (configs != null && configs.hasMoreElements()){
                 while(configs.hasMoreElements()){
-                    parse(configs.nextElement());
+                    extensionClass.putAll(parse(configs.nextElement()));
                 }
             }
-            
+            isLoad = true;
         }
         catch(IOException e){
-            
-        }
-        
-        return extensions;
+            fail(type.getName() + ": Error closing configuration file");
+        }    
     }
 
-    private void parse(URL url){
+    private ConcurrentHashMap<String,String> parse(URL url) throws LoaderException{
+        ConcurrentHashMap<String,String> extensions = new ConcurrentHashMap<>();
+        InputStream in = null;
+        BufferedReader reader = null;
         try {
-            InputStream in =  url.openStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
+            in =  url.openStream();
+            reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
             while(true){
                 String content = reader.readLine();
                 if (content == null) break;
-                parseLine(content);
+                Optional.ofNullable(parseLine(content))
+                .ifPresent((v)->extensions.put(v[0],v[1]));
             }
-            
-        } catch (Exception e) {
+        } catch (IOException e) {
+            fail(type.getName() + ": Error closing configuration file");
         }
+        finally{
+            try {
+                if (reader != null) reader.close();
+                if (in != null) in.close();
+            } catch (IOException y) {
+                fail(type.getName() + ": Error closing configuration file");
+            }
+        }
+        return extensions;
     }
 
-    private String[] parseLine(String content) {
+    private String[] parseLine(String content) throws LoaderException{
         int c = content.indexOf("#");
         content =  content.substring(0,c);
         content = content.trim();
         int n = content.length();
         if (n > 0){
-            if ((content.indexOf(' ') >= 0) || (content.indexOf('\t') >= 0))
-                throw new IllegalStateException("No a valid extension package name");
             int cp = content.codePointAt(0);
             if (!Character.isJavaIdentifierStart(cp))
-                throw new IllegalStateException("No a valid extension package name");
+                fail("No a valid extension package name");
             for (int i = Character.charCount(cp); i < n; i += Character.charCount(cp)) {
                 cp = content.codePointAt(i);
                 if (!Character.isJavaIdentifierPart(cp) && (cp != '.'))
-                    throw new IllegalStateException("No a valid extension package name");
-                    
+                    fail("No a valid extension package name");        
             }
             return content.split(content);
         }
         return null;
     }
+
+    private T getExtensionClass(String name) throws LoaderException{
+        T clz = null;
+        Class<?> cls = null;
+        try {
+            cls = Class.forName(name);
+        } catch (ClassNotFoundException e) {
+            fail("No a valid extension package name");
+        }
+        if (!type.isAssignableFrom(cls))
+            fail("No a valid extension package name");
+        try {
+            clz = type.cast(cls);
+        } catch (Exception e) {
+            fail("No a valid extension package name");
+        }
+        return clz;
+    }
+
+    private void fail(String msg) throws LoaderException{
+        throw new LoaderException(msg);
+    }
+
 }
