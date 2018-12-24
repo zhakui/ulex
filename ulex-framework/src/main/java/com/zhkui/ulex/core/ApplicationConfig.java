@@ -1,8 +1,7 @@
 package com.zhkui.ulex.core;
 
-import java.io.Serializable;
 
-public class ApplicationEntity implements Serializable{
+public class ApplicationConfig extends AbstractConfig{
     private static final long serialVersionUID = 2234979234734503453L;
     private String name;
     private String group;

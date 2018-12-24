@@ -1,8 +1,6 @@
 package com.zhkui.ulex.core;
 
-import java.io.Serializable;
-
-public class ServiceEntity<T> implements Serializable{
+public class ServiceConfig<T> extends AbstractConfig{
     private static final long serialVersionUID = 2978234870203434903L;
     private String name;
     private String version;
