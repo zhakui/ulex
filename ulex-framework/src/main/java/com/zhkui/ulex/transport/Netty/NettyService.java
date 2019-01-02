@@ -1,6 +1,6 @@
 package com.zhkui.ulex.transport.Netty;
 
-import com.zhkui.ulex.transport.AbstractService;
+import com.zhkui.ulex.transport.AbstractTransportService;
 import com.zhkui.ulex.common.Endpoint;
 import com.zhkui.ulex.core.ServiceRouter;
 import io.netty.bootstrap.ServerBootstrap;
@@ -18,7 +18,7 @@ import net.openhft.affinity.AffinityThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class NettyService extends AbstractService{
+public class NettyService extends AbstractTransportService{
 
     Logger logger = LoggerFactory.getLogger(NettyService.class);
 

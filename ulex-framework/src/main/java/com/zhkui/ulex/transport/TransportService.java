@@ -1,7 +1,7 @@
 package com.zhkui.ulex.transport;
 
 
-public interface BaseService{
+public interface TransportService{
     
     public void run();
 

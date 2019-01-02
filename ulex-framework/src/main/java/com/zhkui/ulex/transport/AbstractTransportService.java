@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import com.zhkui.ulex.common.Endpoint;
 import com.zhkui.ulex.core.ServiceRouter;
 
-public abstract class AbstractService implements BaseService{
+public abstract class AbstractTransportService implements TransportService{
 
     protected Endpoint endpoint;
 
@@ -12,7 +12,7 @@ public abstract class AbstractService implements BaseService{
 
     protected ServiceRouter serviceRouter;
 
-    public AbstractService(Endpoint endpoint, ServiceRouter serviceRouter){
+    public AbstractTransportService(Endpoint endpoint, ServiceRouter serviceRouter){
 
         this.endpoint = endpoint;
 
