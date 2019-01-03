@@ -1,5 +1,5 @@
 package com.zhkui.ulex.monitor;
 
-public class MonitorService{
+public interface MonitorService{
     
 }

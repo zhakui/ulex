@@ -1,4 +1,5 @@
-package com.zhkui.ulex.commom;
+package com.zhkui.ulex.common;
+
 
 public class DataProcess{
 
