@@ -1,39 +1,42 @@
 package com.zhkui.ulex.protocol.RPC;
 
-import com.zhkui.ulex.registry.RegistryService;
-import com.zhkui.ulex.transport.BaseService;
+import com.zhkui.ulex.transport.TransportService;
+import com.zhkui.ulex.core.ServiceContainer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zhkui.ulex.common.URL;
-
 public class RPCService {
     Logger logger = LoggerFactory.getLogger(RPCService.class);
 
-    private BaseService baseService;
+    private ServiceContainer serviceContainer;
 
-    private RegistryService registryService;
+    private TransportService transportService;
 
-    public RPCService(){}
-
-    public void export(){
-        baseService.run();
+    public RPCService(TransportService transportService){
+        this.transportService = transportService;
     }
 
-    public void registry(URL url){
-        try{
-            registryService.register(url);
-        }catch(Exception e){
-            
-        }
-        
+    public void export(){
+        transportService.run();
     }
 
     public void main (){
-        logger.info("RPC service start");
-
-        
+        logger.info("RPC service start"); 
     }
 
+
+    /**
+     * @return ServiceContainer return the serviceContainer
+     */
+    public ServiceContainer getServiceContainer() {
+        return serviceContainer;
+    }
+
+    /**
+     * @param serviceContainer the serviceContainer to set
+     */
+    public void setServiceContainer(ServiceContainer serviceContainer) {
+        this.serviceContainer = serviceContainer;
+    }
 }
