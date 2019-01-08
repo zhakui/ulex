@@ -1,5 +1,5 @@
 package com.zhkui.ulex.protocol.RPC;
 
-public interface Provider {
+public interface Provider<T> extends Caller<T> {
 
 }

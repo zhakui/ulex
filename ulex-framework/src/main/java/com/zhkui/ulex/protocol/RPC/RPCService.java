@@ -6,10 +6,10 @@ import com.zhkui.ulex.core.ServiceContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RPCService {
+public class RPCService<T> {
     Logger logger = LoggerFactory.getLogger(RPCService.class);
 
-    private ServiceContainer serviceContainer;
+    private ServiceContainer<T> serviceContainer;
 
     private TransportService transportService;
 

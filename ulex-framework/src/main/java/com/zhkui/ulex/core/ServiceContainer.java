@@ -3,7 +3,7 @@ package com.zhkui.ulex.core;
 import java.util.HashMap;
 import com.zhkui.ulex.protocol.RPC.Provider;
 
-public class ServiceContainer{
+public class ServiceContainer<T>{
     private HashMap<String,Provider> services;
 
     public ServiceContainer(){}
@@ -12,7 +12,7 @@ public class ServiceContainer{
         return services.get(name);
     }
 
-    public void putServices(String name, Provider service) {
+    public void putServices(String name, Provider<T> service) {
         this.services.put(name, service);
     }
 
