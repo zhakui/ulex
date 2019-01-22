@@ -1,24 +1,22 @@
 package com.zhkui.ulex.registry;
 
-import com.zhkui.ulex.common.URL;
 import java.io.Serializable;
 
 public class RegistryEntity implements Serializable {
     
     private static final long serialVersionUID = 2334563566435693345L;
 
-    private URL url;
+    private String host;
+    private int port;
+    private String path;
+    private String username;
+    private String password;
 
-    public RegistryEntity(String protocol,String host,int port, String path, String username, String password){
-        this.url = new URL(protocol,host,port,path,username,password);
+    public RegistryEntity(String host,int port, String path, String username, String password){
+        this.host = host;
+        this.port = port;
+        this.path = path;
+        this.username = username;
+        this.password = password;
     }
-
-    public URL getUrl() {
-        return url;
-    }
-
-    public void setUrl(URL url) {
-        this.url = url;
-    }
-
 }

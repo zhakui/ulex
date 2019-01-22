@@ -11,18 +11,18 @@ public class ZookeeperRegistry extends AbstractRegistryService {
     /**
      * register service to registration center
      *
-     * @param url
+     * @param path
      */
-    public void register(URL url) throws Exception{
+    public void register(String path) throws Exception{
 
     }
 
     /**
      * unregister service to registration center
      *
-     * @param url
+     * @param path
      */
-    public void unregister(URL url) throws Exception{
+    public void unregister(String path) throws Exception{
 
     }
 

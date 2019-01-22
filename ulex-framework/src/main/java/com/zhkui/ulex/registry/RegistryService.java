@@ -7,7 +7,6 @@ package com.zhkui.ulex.registry;
  * @author ZhangKui
  * @version 1.0
  */
-import com.zhkui.ulex.common.URL;
 
 public interface RegistryService {
     /**
@@ -15,12 +14,12 @@ public interface RegistryService {
      *
      * @param url
      */
-    void register(URL url) throws Exception;
+    void register(String path) throws Exception;
 
     /**
      * unregister service to registration center
      *
      * @param url
      */
-    void unregister(URL url) throws Exception;
+    void unregister(String path) throws Exception;
 }

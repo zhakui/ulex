@@ -1,6 +1,6 @@
 package com.zhkui.ulex.registry;
 
-import com.zhkui.ulex.common.URL;
+import java.util.List;
 
 public interface DiscoverService {
     /**
@@ -8,12 +8,15 @@ public interface DiscoverService {
      *
      * @param url
      */
-    void subscribe(URL url) throws Exception;
+    void subscribe(String path) throws Exception;
 
     /**
      * unsubscribe service to registration center
      *
      * @param url
      */
-    void unsubscribe(URL url) throws Exception;
+    void unsubscribe(String path) throws Exception;
+
+    
+    List<String> discover(String path) throws Exception;
 }
