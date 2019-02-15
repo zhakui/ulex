@@ -4,7 +4,7 @@ import java.util.HashMap;
 import com.zhkui.ulex.protocol.RPC.Provider;
 
 public class ServiceContainer<T>{
-    private HashMap<String,Provider> services;
+    private HashMap<String,Provider<T>> services;
 
     public ServiceContainer(){}
 
