@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ulex-parent</artifactId>
+    <groupId>com.zhkui</groupId>
+    <version>${ulex.version}</version>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+
+    <modules>
+        <module>ulex-demo</module>
+        <module>ulex-framework</module>
+        <module>ulex-serialize</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ulex.version>0.1</ulex.version>
+    </properties>
+
+</project>
