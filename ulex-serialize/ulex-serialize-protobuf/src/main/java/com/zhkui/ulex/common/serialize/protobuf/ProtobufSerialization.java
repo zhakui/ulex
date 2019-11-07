@@ -16,12 +16,12 @@ public class ProtobufSerialization implements Serialization {
         return null;
     }
 
-    public DateOutput serialize(InputStream is) throws IOException {
+    public DateOutput serialize(OutputStream outputStream) throws IOException {
         // TODO Auto-generated method stub
         return null;
     }
 
-    public DateInput deserialize(OutputStream os) throws IOException {
+    public DateInput deserialize(InputStream inputStream) throws IOException {
         // TODO Auto-generated method stub
         return null;
     }

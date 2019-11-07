@@ -12,17 +12,14 @@ import com.zhkui.ulex.common.serialize.Serialization;
 public class GsonSerialization implements Serialization {
 
     public ContentTypes getContetType() {
-        // TODO Auto-generated method stub
-        return null;
+        return ContentTypes.SERIALIZATION_CONTENT_TYEP_JSON;
     }
 
-    public DateOutput serialize(InputStream is) throws IOException {
-        // TODO Auto-generated method stub
-        return null;
+    public DateOutput serialize(OutputStream outputStream) throws IOException {
+        return new GsonDateOutput(outputStream);
     }
 
-    public DateInput deserialize(OutputStream os) throws IOException {
-        // TODO Auto-generated method stub
-        return null;
+    public DateInput deserialize(InputStream inputStream) throws IOException {
+        return new GsonDateInput(inputStream);
     }
 }

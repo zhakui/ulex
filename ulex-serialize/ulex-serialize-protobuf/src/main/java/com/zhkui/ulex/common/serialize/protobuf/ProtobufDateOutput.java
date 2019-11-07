@@ -1,47 +1,19 @@
 package com.zhkui.ulex.common.serialize.protobuf;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
-import com.zhkui.ulex.common.serialize.DateOutput;
+import com.zhkui.ulex.common.serialize.AbstractDateOutput;
 
-public class ProtobufDateOutput implements DateOutput{
+public class ProtobufDateOutput extends AbstractDateOutput {
 
-    public void writeByet(byte date) throws IOException {
-        // TODO Auto-generated method stub
-
+    public ProtobufDateOutput(OutputStream os) {
+        super(os);
+        // TODO Auto-generated constructor stub
     }
 
-    public void writeInt(int date) throws IOException {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void writeLong(Long date) throws IOException {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void writeFloat(float date) throws IOException {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void writeDouble(double date) throws IOException {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void writeString(String date) throws IOException {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void writeBoolean(boolean date) throws IOException {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void readByets(byte[] date) throws IOException {
+    @Override
+    public void writeByets(byte[] data)throws IOException {
         // TODO Auto-generated method stub
 
     }
@@ -50,5 +22,5 @@ public class ProtobufDateOutput implements DateOutput{
         // TODO Auto-generated method stub
 
     }
-    
+  
 }

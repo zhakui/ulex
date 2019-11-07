@@ -1,11 +1,28 @@
 package com.zhkui.ulex.common.serialize.gson;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
-import com.zhkui.ulex.common.serialize.DateInput;
+import com.google.gson.Gson;
+import com.zhkui.ulex.common.serialize.AbstractDateInput;
 
-public class GsonDateInput implements DateInput {
+public class GsonDateInput extends AbstractDateInput {
+    private Gson gson;
+    private BufferedReader reader;
+
+    public GsonDateInput(InputStream inputStream) {
+        super(inputStream);
+        gson = new Gson();
+    }
+
+    private GsonDateInput(InputStream inputStream, InputStreamReader inputStreamReader) {
+        super(inputStream);
+        gson = new Gson();
+        reader = new BufferedReader(inputStreamReader);
+    }
 
     public byte readByet() throws IOException {
         // TODO Auto-generated method stub
@@ -53,7 +70,7 @@ public class GsonDateInput implements DateInput {
     }
 
     public <T> T readObject(Class<T> cls) throws IOException, ClassNotFoundException {
-        // TODO Auto-generated method stub
+        reader.readLine();
         return null;
     }
 

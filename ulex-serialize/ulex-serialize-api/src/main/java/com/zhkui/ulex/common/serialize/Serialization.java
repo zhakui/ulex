@@ -8,7 +8,7 @@ public interface Serialization{
 
     ContentTypes getContetType();
 
-    DateOutput serialize(InputStream is) throws IOException;
+    DateOutput serialize(OutputStream outputStream) throws IOException;
 
-    DateInput deserialize(OutputStream os) throws IOException;
+    DateInput deserialize(InputStream inputStream) throws IOException;
 }
