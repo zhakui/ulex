@@ -1,1 +1,2 @@
-/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/test/java/com/zhkui/AppTest.java
+/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/test/java/com/zhkui/ulex/common/serialize/gson/GsonTest.java
+/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/test/java/com/zhkui/ulex/common/serialize/gson/User.java

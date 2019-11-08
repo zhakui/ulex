@@ -1,1 +1,3 @@
-/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/main/java/com/zhkui/App.java
+/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/main/java/com/zhkui/ulex/common/serialize/gson/GsonObjectInput.java
+/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/main/java/com/zhkui/ulex/common/serialize/gson/GsonObjectOutput.java
+/home/xavier/privateSpace/ulex/ulex-serialize/ulex-serialize-gson/src/main/java/com/zhkui/ulex/common/serialize/gson/GsonSerialization.java

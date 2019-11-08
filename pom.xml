@@ -5,7 +5,7 @@
 
     <artifactId>ulex-parent</artifactId>
     <groupId>com.zhkui</groupId>
-    <version>${ulex.version}</version>
+    <version>${reversion}</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
 
@@ -18,7 +18,7 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ulex.version>0.1</ulex.version>
+        <reversion>0.1</reversion>
     </properties>
     <build>  
         <plugins>  

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.zhkui.ulex.common.serialize.gson.GsonTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.1 sec <<< FAILURE!
+testdeserialize(com.zhkui.ulex.common.serialize.gson.GsonTest)  Time elapsed: 0.065 sec  <<< ERROR!
+java.lang.ClassCastException: java.lang.Double cannot be cast to java.lang.String
+	at com.zhkui.ulex.common.serialize.gson.GsonTest.testdeserialize(GsonTest.java:69)
+

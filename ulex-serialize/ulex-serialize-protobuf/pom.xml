@@ -4,7 +4,7 @@
     <parent>
         <artifactId>ulex-serialize</artifactId>
         <groupId>com.zhkui</groupId>
-        <version>${ulex.version}</version>
+        <version>${reversion}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>

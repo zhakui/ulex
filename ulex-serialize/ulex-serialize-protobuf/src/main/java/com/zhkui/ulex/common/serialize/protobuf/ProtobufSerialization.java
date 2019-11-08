@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import com.zhkui.ulex.common.serialize.ContentTypes;
-import com.zhkui.ulex.common.serialize.DateInput;
-import com.zhkui.ulex.common.serialize.DateOutput;
+import com.zhkui.ulex.common.serialize.ObjectInput;
+import com.zhkui.ulex.common.serialize.ObjectOutput;
 import com.zhkui.ulex.common.serialize.Serialization;
 
 public class ProtobufSerialization implements Serialization {
@@ -16,12 +16,12 @@ public class ProtobufSerialization implements Serialization {
         return null;
     }
 
-    public DateOutput serialize(OutputStream outputStream) throws IOException {
+    public ObjectOutput serialize(OutputStream outputStream) throws IOException {
         // TODO Auto-generated method stub
         return null;
     }
 
-    public DateInput deserialize(InputStream inputStream) throws IOException {
+    public ObjectInput deserialize(InputStream inputStream) throws IOException {
         // TODO Auto-generated method stub
         return null;
     }

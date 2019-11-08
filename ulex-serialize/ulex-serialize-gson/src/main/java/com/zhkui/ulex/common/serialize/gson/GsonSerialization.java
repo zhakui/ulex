@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import com.zhkui.ulex.common.serialize.ContentTypes;
-import com.zhkui.ulex.common.serialize.DateInput;
-import com.zhkui.ulex.common.serialize.DateOutput;
+import com.zhkui.ulex.common.serialize.ObjectInput;
+import com.zhkui.ulex.common.serialize.ObjectOutput;
 import com.zhkui.ulex.common.serialize.Serialization;
 
 public class GsonSerialization implements Serialization {
@@ -15,11 +15,11 @@ public class GsonSerialization implements Serialization {
         return ContentTypes.SERIALIZATION_CONTENT_TYEP_JSON;
     }
 
-    public DateOutput serialize(OutputStream outputStream) throws IOException {
-        return new GsonDateOutput(outputStream);
+    public ObjectOutput serialize(OutputStream outputStream) throws IOException {
+        return new GsonObjectOutput(outputStream);
     }
 
-    public DateInput deserialize(InputStream inputStream) throws IOException {
-        return new GsonDateInput(inputStream);
+    public ObjectInput deserialize(InputStream inputStream) throws IOException {
+        return new GsonObjectInput(inputStream);
     }
 }
