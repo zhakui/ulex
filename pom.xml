@@ -13,7 +13,8 @@
         <module>ulex-demo</module>
         <module>ulex-framework</module>
         <module>ulex-serialize</module>
-    </modules>
+        <module>ulex-registry</module>
+   </modules>
 
     <properties>
         <java.version>1.8</java.version>

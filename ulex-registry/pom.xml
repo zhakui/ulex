@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ulex-parent</artifactId>
+        <groupId>com.zhkui</groupId>
+        <version>${reversion}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ulex-registry</artifactId>
+    <groupId>com.zhkui</groupId>
+    <name>${project.artifactId}</name>
+    <packaging>pom</packaging>
+
+<modules>  <module>ulex-registry-zookeeper</module>
+    <module>ulex-registry-eureka</module>
+    <module>ulex-registry-api</module>
+  </modules>
+</project>
